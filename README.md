@@ -6,7 +6,7 @@
 ### Screenshots:
 
 ![Badge Screenshot](screenshots/screenshot-badge.png)
-![Badge Screenshot](screenshots/screenshot-popup.png)
+![Popup Screenshot](screenshots/screenshot-popup.png)
 
 ### Roadmap:
 - v0.0.4 - Add more currencies
