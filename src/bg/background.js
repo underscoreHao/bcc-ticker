@@ -50,16 +50,16 @@
 			if (response.length == 0) {
 				setBadge("---");
 			} else {
-				var results = JSON.parse(response);
+				var results = JSON.parse(response)[0];
 				var current_currency = "price_" + config.currency.toLowerCase();
-				var current_rate = Math.round(results[0][current_currency]).toString();
-				var percent_change = (results[0]["percent_change_1h"]).toString();
+				var current_rate = Math.round(results[current_currency]).toString();
+				var percent_change = (results["percent_change_1h"]).toString();
 				BitConnect.setBadge(current_rate, percent_change);
 			}
 		},
 	
 		setBadge: function(current_rate, percent_change) {
-			var color = Math.sign(percent_change) ? config.red_color : config.green_color;
+			var color = Math.sign(percent_change) ? config.green_color : config.red_color;
 			chrome.browserAction.setBadgeBackgroundColor({color: color});
 			chrome.browserAction.setBadgeText({text: current_rate});
 		}

@@ -1,0 +1,89 @@
+body {
+	font-family: 'Ubuntu', sans-serif;
+	background-color: #333;
+	color: #FFF;
+	border: 2px solid #FA890F;
+	margin: 12px;
+	width: 418px;
+	height: 290px;
+  }
+  
+  .container {
+	margin: 44px 44px 16px;
+  }
+  
+  .title {
+	font-size: 38px;
+	font-weight: normal;
+  }
+  
+  .subtitle {
+	margin-top: -25px;
+	margin-left: 10px;
+	font-size: 10px;
+	font-weight: normal;
+	font-style: italic;
+  }
+  
+  .price-container {
+	padding-top: 2px;
+  }
+  
+  .price-fiat {
+	font-size: 40px;
+	font-weight: bold;
+  }
+  
+  .price-btc {
+	font-size: 20px;
+	font-weight: normal;
+  }
+  
+  .row {
+	display: flex;
+  }
+  
+  .price-icons-container {
+	flex: 1;
+	padding-top: 21px;
+	padding-left: 10px;
+  }
+  
+  .icon-up {
+	display: block;
+	visibility: hidden;
+  }
+  
+  .icon-down {
+	display: block;
+	visibility: hidden;
+  }
+  
+  .price-change {
+	font-size: 13px;
+	width: 100%;
+	position: relative;
+	display: inline-block;
+  }
+  
+  .price-change span {
+	padding-left: 3px;
+  }
+  
+  .price-change-left {
+	float: left;
+	width: 33%;
+  }
+  
+  .price-change-center {
+	float: center;
+	width: 33%;
+	text-align: right;
+  }
+  
+  .price-change-right {
+	float: right;
+	width: 33%;
+	text-align: right;
+  }
+  

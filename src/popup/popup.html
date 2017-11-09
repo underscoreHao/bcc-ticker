@@ -1,11 +1,41 @@
 <!doctype html>
-<html>
-	<head>
-		<script src="../../js/jquery-3.2.1.min.js"></script>
-		<script src="popup.js"></script>
-	</head>
-	<body>
-		<input type="text" id="txt_name" />
-		<input type="submit" id="btn_save" title="save" value="save"/>
-	</body>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu:regular,bold" rel="stylesheet">
+  <script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script> 
+  <link rel="stylesheet" href="popup.css"></link>
+</head>
+<body>
+	<div class="container">
+		<h1 class="title">BCC Price</h1>
+		<h4 class="subtitle">Powered by CoinMarketCap</h4>
+		<div class="price-container">
+			<div class="row">
+				<div class="price-title-container">
+					<h2>
+						<span class="price-fiat">-</span>
+					</h2>
+				</div>
+				<div class="price-icons-container">
+					<img class="icon-up" src="../../icons/up.png" width="17" height="17" />
+					<img class="icon-down" src="../../icons/down.png" width="17" height="17" />
+				</div>
+			</div>
+			<h3>
+				<span class="price-btc">-</span>
+			</h3>
+		</div>
+		<div class="price-change">
+			<p class="price-change price-change-left">
+				1 hour: <span class="hour">-</span>
+			</p>
+			<p class="price-change price-change-center">
+				24 hours: <span class="day">-</span>
+			</p>
+			<p class="price-change price-change-right">
+				7 days: <span class="week">-</span>
+			</p>
+		</div>
+	</div>
+	<script type="text/javascript" src="popup.js"></script>
+</body>
 </html>
