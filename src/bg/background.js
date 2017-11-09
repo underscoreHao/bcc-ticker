@@ -59,7 +59,7 @@
 		},
 	
 		setBadge: function(current_rate, percent_change) {
-			var color = Math.sign(percent_change) ? config.green_color : config.red_color;
+			var color = percent_change >= 0 ? config.green_color : config.red_color;
 			chrome.browserAction.setBadgeBackgroundColor({color: color});
 			chrome.browserAction.setBadgeText({text: current_rate});
 		}
