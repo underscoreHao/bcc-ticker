@@ -39,16 +39,7 @@
 					}
 				}
 	
-				var url;
-
-				if (config.currency === "USD")
-				{
-					url = "https://api.coinmarketcap.com/v1/ticker/bitconnect/";					
-				}
-				else
-				{
-					url = "https://api.coinmarketcap.com/v1/ticker/bitconnect/?convert=" + config.currency;
-				}
+				var url = "https://api.coinmarketcap.com/v1/ticker/bitconnect/?convert=" + config.currency;
 
 				request.open("GET", url, true);
 				request.send(null);
