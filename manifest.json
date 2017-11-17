@@ -1,7 +1,7 @@
 {
 	"name": "BCC Price (BitConnect Coin)",
 	"short_name": "BCC ticker",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"manifest_version": 2,
 	"description": "Current BCC price on the badge icon.",
 	"icons": {
@@ -20,6 +20,9 @@
 		"alarms",
 		"storage"
 	],
+
+	"options_page": "src/options/options.html",
+
 	"browser_action": {
 		"default_icon": "icons/icon@19.png",
 		"default_title": "BCC price",

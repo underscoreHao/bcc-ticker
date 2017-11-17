@@ -24,6 +24,7 @@
 			this.getCurrentExchangeRate();
 			var self = this;
 			this.globalIntervalId = window.setInterval(function() {
+				self.resetCurrentVals();
 				self.getCurrentExchangeRate();
 			}, config.refresh_time);
 		},

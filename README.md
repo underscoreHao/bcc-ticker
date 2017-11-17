@@ -11,3 +11,4 @@ A chrome extension showing the current BitConnect Coin price from CoinMarketCap 
 
 ### Roadmap:
 - v0.0.5 - Add more currencies
+- v0.0.6 - Add percentage rates from lending

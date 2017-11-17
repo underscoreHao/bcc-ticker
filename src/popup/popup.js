@@ -12,12 +12,7 @@
 	var Popup = {
 		init: function() {
 			this.resetConfig();
-			this.initializeContent();
 			this.requestData();
-		},
-
-		initializeContent: function() {
-			$('input[value=' + config.currency + ']').prop('checked', true);
 		},
 
 		resetConfig: function() {
@@ -28,6 +23,30 @@
 			if (config.currency === 'USD') {
 				config.symbol = '$';
 				config.symbol_prefix = true;
+			} else if (config.currency === 'EUR') {
+				config.symbol = '\u20AC';
+				config.symbol_prefix = true;
+			} else if (config.currency === 'CAD') {
+				config.symbol = '$';
+				config.symbol_prefix = true;
+			} else if (config.currency === 'GBP') {
+				config.symbol = '\u00A3';
+				config.symbol_prefix = true;
+			} else if (config.currency === 'CNY') {
+				config.symbol = '\u5143';
+				config.symbol_prefix = true;
+			} else if (config.currency === 'JPY') {
+				config.symbol = '\u00A5';
+				config.symbol_prefix = true;
+			} else if (config.currency === 'INR') {
+				config.symbol = '\u20B9';
+				config.symbol_prefix = true;
+			} else if (config.currency === 'RUB') {
+				config.symbol = '\u20BD';
+				config.symbol_prefix = true;
+			} else {
+				config.symbol = config.currency;
+				config.symbol_prefix = false;
 			}
 		},
 
