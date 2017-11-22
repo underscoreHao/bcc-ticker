@@ -1,15 +1,15 @@
 body {
 	font-family: 'Ubuntu', sans-serif;
-	background-color: #333;
+	background-color: #444;
 	color: #FFF;
-	border: 2px solid #FA890F;
+	border: 2px solid #bebdbb;
 	margin: 12px;
 	width: 418px;
 	height: 290px;
   }
   
   .container {
-	margin: 44px 44px 16px;
+	margin: 24px 44px 16px;
   }
   
   .title {
@@ -23,7 +23,12 @@ body {
 	font-size: 10px;
 	font-weight: normal;
 	font-style: italic;
-  }
+	}
+	
+	.crypto-name {
+	font-size: 20px;
+	font-weight: normal;
+	}
   
   .price-container {
 	padding-top: 2px;

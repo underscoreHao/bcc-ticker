@@ -3,7 +3,8 @@
 		'refresh_time': 20000,
 		'green_color': "#7ED321",
 		'red_color': "#D0021B",
-		'currency': "USD"
+		'fiat_currency': "USD",
+		'crypto_currency': "bitcoin",
 	};
 
 	var config = {};
@@ -40,7 +41,7 @@
 					}
 				}
 	
-				var url = "https://api.coinmarketcap.com/v1/ticker/bitconnect/?convert=" + config.currency;
+				var url = "https://api.coinmarketcap.com/v1/ticker/" + config.crypto_currency + "/?convert=" + config.fiat_currency;
 
 				request.open("GET", url, true);
 				request.send(null);
@@ -52,7 +53,7 @@
 				setBadge("---");
 			} else {
 				var results = JSON.parse(response)[0];
-				var current_currency = "price_" + config.currency.toLowerCase();
+				var current_currency = "price_" + config.fiat_currency.toLowerCase();
 				var current_rate = Math.round(results[current_currency]).toString();
 				var percent_change = (results["percent_change_1h"]).toString();
 				BitConnect.setBadge(current_rate, percent_change);

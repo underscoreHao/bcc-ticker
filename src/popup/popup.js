@@ -1,6 +1,7 @@
 (function() {
 	var defaultVals = {
 		'currency': 'USD',
+		'crypto_currency': 'bitcoin',
 		'symbol': '$',
 		'symbol_prefix': true,
 		'green_color': '#7ED321',
@@ -80,7 +81,7 @@
 					}
 				}
 	
-				var url = "https://api.coinmarketcap.com/v1/ticker/bitconnect/?convert=" + config.currency;
+				var url = "https://api.coinmarketcap.com/v1/ticker/" + config.crypto_currency + "/?convert=" + config.currency;
 
 				request.open("GET", url, true);
 				request.send(null);
