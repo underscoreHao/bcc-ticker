@@ -1,5 +1,5 @@
 ## Crypto Tracker
-A chrome extension showing the current price on your desired crypto currency from CoinMarketCap on the badge. Includes a popup with more detailed information. As well as options where you can choose your desired crypto currency and it's going rate.
+A chrome extension showing the current price of your desired crypto currency from CoinMarketCap on the badge. Includes a popup with more detailed information. As well as options where you can choose your desired crypto currency and its going rate.
 
 ### Chrome Web Store
 [Chrome Chrome Extensions](https://chrome.google.com/webstore/detail/bcc-price-bitconnect-coin/oclnggnhbahdbgjoldcboibocfbligpi)
