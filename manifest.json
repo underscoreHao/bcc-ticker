@@ -18,7 +18,8 @@
 	"permissions": [
 		"https://api.coinmarketcap.com/*",
 		"alarms",
-		"storage"
+		"storage",
+		"notifications"
 	],
 
 	"options_page": "src/options/options.html",
