@@ -3,7 +3,7 @@
 		'refresh_time': 20000,
 		'green_color': "#7ED321",
 		'red_color': "#D0021B",
-		'fiat_currency': "USD",
+		'currency': "USD",
 		'crypto_currency': "bitcoin",
 	};
 
