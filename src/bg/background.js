@@ -1,7 +1,7 @@
 (function() {
 	var defaultVals = {
 		'refresh_time': 20000,
-		'green_color': "#7ED321",
+		'green_color': "#1A9923",
 		'red_color': "#D0021B",
 		'currency': "USD",
 		'crypto_currency': "bitcoin",
@@ -57,6 +57,16 @@
 				var current_rate = Math.round(results[current_currency]).toString();
 				var percent_change = (results["percent_change_1h"]).toString();
 				BitConnect.setBadge(current_rate, percent_change);
+
+				// if (current_rate > 327) {
+				// 	var notifOptions = {
+				// 		type: 'basic',
+				// 		iconUrl: '../../icons/icon@128.png',
+				// 		title: 'Rate reached!',
+				// 		message: "The rate has surpassed " + current_rate
+				// 	};
+				// 	chrome.notifications.create('limitNotif', notifOptions);
+				// }
 			}
 		},
 	

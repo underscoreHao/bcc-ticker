@@ -4,7 +4,7 @@
 		'crypto_currency': 'bitcoin',
 		'symbol': '$',
 		'symbol_prefix': true,
-		'green_color': '#7ED321',
+		'green_color': '#1A9923',
 		'red_color': '#D0021B',
 	};
 

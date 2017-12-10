@@ -71,10 +71,6 @@ body {
 	display: inline-block;
   }
   
-  .price-change span {
-	padding-left: 3px;
-  }
-  
   .price-change-left {
 	float: left;
 	width: 33%;
