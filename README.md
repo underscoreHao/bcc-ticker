@@ -9,10 +9,9 @@ A chrome extension showing the current price of your desired crypto currency fro
 ![Badge Screenshot](screenshots/screenshot-badge.png)
 ![Popup Screenshot](screenshots/screenshot-popup.png)
 
-### New in v0.0.7:
-* Changed the shade of green after multiple reports from people who couldn't read the value because of the contrast.
-* Fixed an issue where if the price change was double digits it will display on 2 lines inside the popup.
-* Fixed a bug where the currency would revert itself to USD after you've chosen another currency.
+### New in v0.0.8:
+* Fixed some bugs
+* Implemented a new way in which you can choose your desired cryptocurrency. Previously the list was static. Now the crypto currency list is loaded dynamically from CoinMarketCap with the top 50 cryptos.
 
 ### Roadmap:
-- v0.0.8 - Desktop alerts when the price hits a certain threshold
+- v0.0.9 - Desktop alerts when the price hits a certain threshold
