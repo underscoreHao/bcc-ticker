@@ -11,12 +11,12 @@
 	var config = {};
 
 	var Popup = {
-		init: function() {
+		init() {
 			this.resetConfig();
 			this.requestData();
 		},
 
-		resetConfig: function() {
+		resetConfig() {
 			for (var key in defaultVals) {
 				config[key] = localStorage[key] || defaultVals[key];
 			}
@@ -51,7 +51,7 @@
 			}
 		},
 
-		resetArrows: function() {
+		resetArrows() {
 			this.hideElement('.icon-up');
 			this.hideElement('.icon-down');
 			$('span').each(function() {
@@ -59,18 +59,18 @@
 			});
 		},
 
-		updateFiatPrice: function(element, price) {
+		updateFiatPrice(element, price) {
 			var fixedPrice = parseFloat(Math.round(price * 100) / 100).toFixed(2);
 			var text = config.symbol_prefix ? config.symbol + fixedPrice : fixedPrice + config.symbol;
 			$(element).text(text);
 		},
 
-		updateBitconPrice: function(element, price) {
+		updateBitconPrice(element, price) {
 			var text = "\u0243" + price;
 			$(element).text(text);
 		},
 
-		requestData: function() {
+		requestData() {
 			var request = new XMLHttpRequest();
 			if (request == null) {
 				console.error("Unable to create request!");
@@ -88,7 +88,7 @@
 			}
 		},
 
-		handleResponse: function(response) {
+		handleResponse(response) {
 			if (response.length == 0) {
 				console.error("Empty response!");
 			} else {
@@ -109,7 +109,7 @@
 			}
 		},
 
-		updatePercentage: function(element, percentage) {
+		updatePercentage(element, percentage) {
 			if (element === '.hour') {
 				if (percentage >= 0)
 				{
@@ -126,15 +126,15 @@
 			$(element).text(text);
 		},
 
-		hideElement: function(element) {
+		hideElement(element) {
 			$(element).css('visibility', 'hidden');
 		},
 	  
-		showElement: function(element) {
+		showElement(element) {
 			$(element).css('visibility', 'visible');
 		},
 
-		setBadge: function(current_rate, percent_change) {
+		setBadge(current_rate, percent_change) {
 			var color = percent_change >= 0 ? config.green_color : config.red_color;
 			chrome.browserAction.setBadgeBackgroundColor({color: color});
 			chrome.browserAction.setBadgeText({text: current_rate});

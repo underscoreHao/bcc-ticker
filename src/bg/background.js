@@ -9,19 +9,21 @@
 
 	var config = {};
 
-	var BitConnect = {
-		init: function() {
+	const coinUrl = "https://api.coinmarketcap.com/v1/ticker/";
+
+	var Crypto = {
+		init() {
 			this.resetCurrentVals();
 			this.initRequest();
 		},
 
-		resetCurrentVals: function() {
+		resetCurrentVals() {
 			for (var key in defaultVals) {
 				config[key] = localStorage[key] || defaultVals[key];
 			}
 		},
 	
-		initRequest: function() {
+		initRequest() {
 			this.getCurrentExchangeRate();
 			var self = this;
 			this.globalIntervalId = window.setInterval(function() {
@@ -30,25 +32,25 @@
 			}, config.refresh_time);
 		},
 	
-		getCurrentExchangeRate: function() {
+		getCurrentExchangeRate() {
 			var request = new XMLHttpRequest();
 			if (request == null) {
 				console.error("Unable to create request!");
 			} else {
 				request.onreadystatechange = function() {
 					if (request.readyState == 4) {
-						BitConnect.handleResponse(request.responseText);
+						Crypto.handleResponse(request.responseText);
 					}
 				}
 	
-				var url = "https://api.coinmarketcap.com/v1/ticker/" + config.crypto_currency + "/?convert=" + config.currency;
+				var url = coinUrl + config.crypto_currency + "/?convert=" + config.currency;
 
 				request.open("GET", url, true);
 				request.send(null);
 			}
 		},
 	
-		handleResponse: function(response) {
+		handleResponse(response) {
 			if (response.length == 0) {
 				setBadge("---");
 			} else {
@@ -56,7 +58,12 @@
 				var current_currency = "price_" + config.currency.toLowerCase();
 				var current_rate = Math.round(results[current_currency]).toString();
 				var percent_change = (results["percent_change_1h"]).toString();
-				BitConnect.setBadge(current_rate, percent_change);
+
+				// if (current_rate >= 10000) {
+				// 	Crypto.setBadge(Math.floor(current_rate/1000) + "K");
+				// } else {
+				// 	Crypto.setBadge(current_rate, percent_change);
+				// }
 
 				// if (current_rate > 327) {
 				// 	var notifOptions = {
@@ -70,13 +77,12 @@
 			}
 		},
 	
-		setBadge: function(current_rate, percent_change) {
+		setBadge(current_rate, percent_change) {
 			var color = percent_change >= 0 ? config.green_color : config.red_color;
 			chrome.browserAction.setBadgeBackgroundColor({color: color});
 			chrome.browserAction.setBadgeText({text: current_rate});
 		}
 	}
 
-	return BitConnect;
-	
+	return Crypto;
 })().init();
