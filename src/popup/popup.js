@@ -1,4 +1,4 @@
-(function() {
+(() => {
   var defaultVals = {
     'currency': 'USD',
     'crypto_currency': 'bitcoin',
@@ -57,7 +57,7 @@
     resetArrows() {
       this.hideElement('.icon-up');
       this.hideElement('.icon-down');
-      $('span').each(function() {
+      $('span').each(() => {
         $(this).text('-');
       });
     },
@@ -78,7 +78,7 @@
       if (request == null) {
         console.error('Unable to create request!');
       } else {
-        request.onreadystatechange = function() {
+        request.onreadystatechange = () => {
           if (request.readyState == 4) {
             Popup.handleResponse(request.responseText);
           }
@@ -114,8 +114,7 @@
 
     updatePercentage(element, percentage) {
       if (element === '.hour') {
-        if (percentage >= 0)
-        {
+        if (percentage >= 0) {
           this.hideElement('.icon-down');
           this.showElement('.icon-up');
         } else {
@@ -139,8 +138,8 @@
 
     setBadge(current_rate, percent_change) {
       var color = percent_change >= 0 ? config.green_color : config.red_color;
-      chrome.browserAction.setBadgeBackgroundColor({color: color});
-      chrome.browserAction.setBadgeText({text: current_rate});
+      chrome.browserAction.setBadgeBackgroundColor({ color: color });
+      chrome.browserAction.setBadgeText({ text: current_rate });
     }
 
   };
