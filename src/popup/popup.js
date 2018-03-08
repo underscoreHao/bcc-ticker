@@ -45,6 +45,9 @@
       } else if (config.currency === 'RUB') {
         config.symbol = '\u20BD';
         config.symbol_prefix = true;
+      } else if (config.currency === 'HKD') {
+        config.symbol = 'HK$';
+        config.symbol_prefix = true;
       } else {
         config.symbol = config.currency;
         config.symbol_prefix = false;
@@ -66,14 +69,14 @@
     },
 
     updateBitconPrice(element, price) {
-      var text = "\u0243" + price;
+      var text = '\u0243' + price;
       $(element).text(text);
     },
 
     requestData() {
       var request = new XMLHttpRequest();
       if (request == null) {
-        console.error("Unable to create request!");
+        console.error('Unable to create request!');
       } else {
         request.onreadystatechange = function() {
           if (request.readyState == 4) {
@@ -81,24 +84,24 @@
           }
         }
 
-        var url = "https://api.coinmarketcap.com/v1/ticker/" + config.crypto_currency + "/?convert=" + config.currency;
+        var url = 'https://api.coinmarketcap.com/v1/ticker/' + config.crypto_currency + '/?convert=' + config.currency;
 
-        request.open("GET", url, true);
+        request.open('GET', url, true);
         request.send(null);
       }
     },
 
     handleResponse(response) {
       if (response.length == 0) {
-        console.error("Empty response!");
+        console.error('Empty response!');
       } else {
         var results = JSON.parse(response)[0];
-        var currency_price_name = "price_" + config.currency.toLowerCase();
+        var currency_price_name = 'price_' + config.currency.toLowerCase();
         var current_price = Math.round(results[currency_price_name]).toString();
-        var current_price_btc = results["price_btc"].toString();
-        var percent_change_1h = (results["percent_change_1h"]).toString();
-        var percent_change_24h = (results["percent_change_24h"]).toString();
-        var percent_change_7d = (results["percent_change_7d"]).toString();
+        var current_price_btc = results['price_btc'].toString();
+        var percent_change_1h = (results['percent_change_1h']).toString();
+        var percent_change_24h = (results['percent_change_24h']).toString();
+        var percent_change_7d = (results['percent_change_7d']).toString();
 
         Popup.updateFiatPrice('.price-fiat', current_price);
         Popup.updateBitconPrice('.price-btc', current_price_btc);
