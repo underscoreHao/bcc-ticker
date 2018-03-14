@@ -54,7 +54,14 @@
       } else {
         var results = JSON.parse(response)[0];
         var current_currency = 'price_' + config.currency.toLowerCase();
-        var current_rate = Math.round(results[current_currency]).toString();
+        var current_rate = results[current_currency];
+
+        if (current_rate > 100) {
+          current_rate = Math.round(current_rate).toString();
+        } else {
+          current_rate = parseFloat(current_rate).toFixed(2).toString();
+        }
+
         var percent_change = (results['percent_change_1h']).toString();
         Crypto.setBadge(current_rate, percent_change);
       }

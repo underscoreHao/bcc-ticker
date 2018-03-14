@@ -97,11 +97,17 @@
       } else {
         var results = JSON.parse(response)[0];
         var currency_price_name = 'price_' + config.currency.toLowerCase();
-        var current_price = Math.round(results[currency_price_name]).toString();
         var current_price_btc = results['price_btc'].toString();
         var percent_change_1h = (results['percent_change_1h']).toString();
         var percent_change_24h = (results['percent_change_24h']).toString();
         var percent_change_7d = (results['percent_change_7d']).toString();
+        var current_price = results[currency_price_name];
+
+        if (current_price > 100) {
+          current_price = Math.round(current_price).toString();
+        } else {
+          current_price = parseFloat(current_price).toFixed(2).toString();
+        }
 
         Popup.updateFiatPrice('.price-fiat', current_price);
         Popup.updateBitconPrice('.price-btc', current_price_btc);
