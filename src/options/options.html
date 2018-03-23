@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Options - BCC Price</title>
-    <link rel="stylesheet" type="text/css" href="options.css">
+	<title>Options - BCC Price</title>
+	<link rel="stylesheet" type="text/css" href="options.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	 crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css" integrity="sha384-v2Tw72dyUXeU3y4aM2Y0tBJQkGfplr39mxZqlTBDUZAb9BGoC40+rdFCG0m10lXk"
+	 crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css" integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P"
+	 crossorigin="anonymous">
 </head>
+
 <body>
-<div class="container">
-	<div class="container">
-		<h1 class="title">Options</h1>
-		<div class="options-container">
-			<div class="row">
-				<div class="price-title-container">
-					<label for="userCrrency">Currency</label>
-					<select name="userCurrency" id="user_currency" class="select-currency">
+	<div class="container m-5">
+		<div class="col">
+			<h1 class="h1 text-center my-3">
+				<i class="fa fa-cogs mr-2"></i>Options</h1>
+			<div class="form-group row">
+				<label for="userCrrency" class="col-sm-4 col-form-label text-right">Currency</label>
+				<div class="col-sm-8">
+					<select name="userCurrency" id="user_currency" class="form-control">
 						<option selected="selected" value="USD">United States Dollar (USD)</option>
 						<option value="EUR">Euro (EUR)</option>
 						<option value="CNY">Chinese Renminbi Yuan (CNY)</option>
@@ -36,7 +44,7 @@
 						<option value="NZD">New Zealand Dollar (NZD)</option>
 						<option value="NOK">Norwegian Krone (NOK)</option>
 						<option value="PHP">Philippine Peso (PHP)</option>
-						<option value="PLN">Polish Złoty (PLN)</option>
+						<option value="PLN">Polish ZÅ‚oty (PLN)</option>
 						<option value="RUB">Russian Ruble (RUB)</option>
 						<option value="SGD">Singapore Dollar (SGD)</option>
 						<option value="ZAR">South African Rand (ZAR)</option>
@@ -48,26 +56,26 @@
 					</select>
 				</div>
 			</div>
-			<div class="row">
-				<div class="price-title-container">
-					<label for="cryptoCurrency">Crypto Currency</label>
-					<select name="cryptoCurrency" id="crypto_currency" class="select-crypto-currency">
+			<div class="form-group row">
+				<label for="cryptoCurrency" class="col-sm-4 col-form-label text-right">Crypto Currency</label>
+				<div class="col-sm-8">
+					<select name="cryptoCurrency" id="crypto_currency" class="form-control">
 					</select>
 				</div>
 			</div>
 		</div>
+		<div class="row marketing">
+			<div class="col-lg-12">
+				<form id="formOptions" role="form">
+					<div class="form-group text-right pr-3">
+						<button id="btnSaveOptions" type="submit" class="btn btn-primary">Save Options</button>
+					</div>
+				</form>
+			</div>
+		</div>
 	</div>
-    <div class="row marketing">
-        <div class="col-lg-12">
-            <form id="formOptions" role="form">
-                <div class="form-group">
-                    <button id="btnSaveOptions" type="submit" class="btn-save-options">Save Options</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="options.js"></script>
+	<script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="options.js"></script>
 </body>
+
 </html>
