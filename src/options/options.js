@@ -74,12 +74,7 @@
               text: item.name
             }));
           }
-		});
-		
-		// Set the values that the user has chosen previously
-		$('#crypto_currency').val(config.crypto_currency);
-		$('#user_currency').val(config.currency);
-		$('#user_theme').val(config.theme);
+        });
       }
     },
 
