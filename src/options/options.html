@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Options - BCC Price</title>
-	<link rel="stylesheet" type="text/css" href="options.css">
+	<link rel="stylesheet alternate" href="options_light.css" id="light" title="">
+	<link rel="stylesheet" href="options.css" id="dark" title="">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	 crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css" integrity="sha384-v2Tw72dyUXeU3y4aM2Y0tBJQkGfplr39mxZqlTBDUZAb9BGoC40+rdFCG0m10lXk"
@@ -59,6 +61,15 @@
 				<label for="cryptoCurrency" class="col-sm-4 col-form-label text-right">Crypto Currency</label>
 				<div class="col-sm-8">
 					<select name="cryptoCurrency" id="crypto_currency" class="form-control">
+					</select>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="userTheme" class="col-sm-4 col-form-label text-right">Theme</label>
+				<div class="col-sm-8">
+					<select name="userTheme" id="user_theme" class="form-control">
+						<option value="dark" selected="selected">Dark</option>
+						<option value="light">Light</option>
 					</select>
 				</div>
 			</div>

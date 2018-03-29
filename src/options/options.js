@@ -4,6 +4,7 @@
     'crypto_currency': 'bitcoin',
     'symbol': '$',
     'symbol_prefix': true,
+    'theme': 'dark'
   };
 
   var config = {};
@@ -11,6 +12,7 @@
   var Options = {
     init() {
       this.resetConfigVars();
+      this.setTheme();
       this.initializeContent();
       this.registerListeners();
     },
@@ -19,6 +21,7 @@
       this.fillListRequest();
       $('#user_currency').val(config.currency);
       $('#crypto_currency').val(config.crypto_currency);
+      $('#user_theme').val(config.theme);
 
     },
 
@@ -29,6 +32,7 @@
         $(this).find('#crypto_currency').val();
         localStorage['currency'] = $('#user_currency').val();
         localStorage['crypto_currency'] = $('#crypto_currency').val();
+        localStorage['theme'] = $('#user_theme').val();
         self.resetConfigVars();
       });
     },
@@ -79,6 +83,15 @@
         config[key] = localStorage[key] || defaultVals[key];
       }
     },
+    setTheme() {
+      if (config.theme == 'light') {
+        document.getElementById('light').rel = 'stylesheet';
+        document.getElementById('dark').rel = 'alternate stylesheet';
+      } else {
+        document.getElementById('light').rel = 'alternate stylesheet';
+        document.getElementById('dark').rel = 'stylesheet';
+      }
+    }
   };
 
   return Options;
