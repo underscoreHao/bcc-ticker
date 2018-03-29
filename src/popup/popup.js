@@ -115,8 +115,10 @@
         var percent_change_7d = (results['percent_change_7d']).toString();
         var current_price = results[currency_price_name];
 
-        if (current_price > 100) {
+        if (current_price > 10000) {
           current_price = Math.round(current_price).toString();
+        } else if (current_price > 100) {
+          current_price = parseFloat(current_price).toFixed(1).toString();
         } else {
           current_price = parseFloat(current_price).toFixed(2).toString();
         }

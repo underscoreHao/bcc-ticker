@@ -57,8 +57,10 @@
         var current_currency = 'price_' + config.currency.toLowerCase();
         var current_rate = results[current_currency];
 
-        if (current_rate > 100) {
+        if (current_rate > 10000) {
           current_rate = Math.round(current_rate).toString();
+        } else if (current_rate > 100) {
+          current_rate = parseFloat(current_rate).toFixed(1).toString();
         } else {
           current_rate = parseFloat(current_rate).toFixed(2).toString();
         }
