@@ -6,6 +6,7 @@
     'symbol_prefix': true,
     'green_color': '#1A9923',
     'red_color': '#D0021B',
+    'theme': 'dark'
   };
 
   var config = {};
@@ -13,6 +14,7 @@
   var Popup = {
     init() {
       this.resetConfig();
+      this.setTheme();
       this.requestData();
     },
 
@@ -51,6 +53,16 @@
       } else {
         config.symbol = config.currency;
         config.symbol_prefix = false;
+      }
+    },
+
+    setTheme() {
+      if (config.theme == 'light') {
+        document.getElementById('light').rel = 'stylesheet';
+        document.getElementById('dark').rel = 'alternate stylesheet';
+      } else {
+        document.getElementById('light').rel = 'alternate stylesheet';
+        document.getElementById('dark').rel = 'stylesheet';
       }
     },
 
