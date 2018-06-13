@@ -83,6 +83,18 @@ input[type=range]:focus::-webkit-slider-runnable-track {
   background: #598b51;
 }
 
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before{
+  background-color:#7dc272;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before{
+  background-color:#7dc272 !important;
+}
+
+.custom-checkbox .custom-control-input:focus~.custom-control-label::before {
+  box-shadow: 0 0 0 0.2rem #70ae667a !important;
+}
+
 div.hidden {
   display: none;
 }
