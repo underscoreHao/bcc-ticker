@@ -27,6 +27,14 @@
 		$('#notificationDrop').val(config.priceDrop);
 		$('#notificationRiseRange').val(config.priceRise);
 		$('#notificationDropRange').val(config.priceDrop);
+		if ($('#notificationRise').val() != 0) {
+			$('#priseRise').prop('checked', true);
+			$('#priece-rise-container').removeClass('hidden');
+		}
+		if ($('#notificationDrop').val() != 0) {
+			$('#priseDrop').prop('checked', true);
+			$('#priece-drop-container').removeClass('hidden');
+		}
 	  },
 	  registerListeners() {
 		var self = this;
@@ -36,7 +44,7 @@
 		  localStorage['currency'] = $('#user_currency').val();
 		  localStorage['crypto_currency'] = $('#crypto_currency').val();
 			localStorage['theme'] = $('#user_theme').val();
-			
+
 			if ($('#priseDrop').is(':checked')) {
 				localStorage['priceDrop'] = $('#notificationDrop').val();
 			} else {
