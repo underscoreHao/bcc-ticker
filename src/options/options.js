@@ -4,7 +4,9 @@
 	  'crypto_currency': 'bitcoin',
 	  'symbol': '$',
 	  'symbol_prefix': true,
-	  'theme': 'dark'
+		'theme': 'dark',
+		'priceDrop': 0,
+		'priceRise': 0
 	};
   
 	var config = {};
@@ -15,16 +17,17 @@
 		this.setTheme();
 		this.initializeContent();
 		this.registerListeners();
-	  },
-  
+		},
 	  initializeContent() {
 		this.fillListRequest();
 		$('#user_currency').val(config.currency);
 		$('#crypto_currency').val(config.crypto_currency);
 		$('#user_theme').val(config.theme);
-  
+		$('#notificationRise').val(config.priceRise);
+		$('#notificationDrop').val(config.priceDrop);
+		$('#notificationRiseRange').val(config.priceRise);
+		$('#notificationDropRange').val(config.priceDrop);
 	  },
-  
 	  registerListeners() {
 		var self = this;
 		$('#btnSaveOptions').on('click', () => {
@@ -32,9 +35,60 @@
 		  $(this).find('#crypto_currency').val();
 		  localStorage['currency'] = $('#user_currency').val();
 		  localStorage['crypto_currency'] = $('#crypto_currency').val();
-		  localStorage['theme'] = $('#user_theme').val();
+			localStorage['theme'] = $('#user_theme').val();
+			
+			if ($('#priseDrop').is(':checked')) {
+				localStorage['priceDrop'] = $('#notificationDrop').val();
+			} else {
+				localStorage['priceDrop'] = 0;
+			}
+			
+			if ($('#priseRise').is(':checked')) {
+				localStorage['priceRise'] = $('#notificationRise').val();
+			} else {
+				localStorage['priceRise'] = 0;
+			}
+
 		  self.resetConfigVars();
 		});
+
+		$('#priseDrop').click(function() {
+			if ($('#priseDrop').is(':checked')) {
+				$('#priece-drop-container').removeClass('hidden');
+			} else {
+				$('#priece-drop-container').addClass('hidden');
+			}
+		});
+
+		$('#priseRise').click(function() {
+			if ($('#priseRise').is(':checked')) {
+				$('#priece-rise-container').removeClass('hidden');
+			} else {
+				$('#priece-rise-container').addClass('hidden');
+			}
+		});
+
+
+		$('#notificationRiseRange').on('change', () => {
+			var val = $('#notificationRiseRange').val();
+		  document.getElementById('notificationRise').value=val; 
+		});
+
+		$('#notificationDropRange').on('change', () => {
+			var val = $('#notificationDropRange').val();
+		  document.getElementById('notificationDrop').value=val; 
+		});
+
+		$('#notificationRise').on('change', () => {
+			var val = $('#notificationRise').val();
+		  document.getElementById('notificationRiseRange').value=val; 
+		});
+
+		$('#notificationDrop').on('change', () => {
+			var val = $('#notificationDrop').val();
+		  document.getElementById('notificationDropRange').value=val; 
+		});
+
 	  },
   
 	  fillListRequest() {
@@ -60,7 +114,6 @@
 		  console.log('Something went wrong!')
 		} else {
 		  var results = JSON.parse(response);
-  
 		  $.each(results, (i, item) => {
 			// Add a delimiter at the top 5 crypto currencies
 			if (i == 5) {
@@ -96,7 +149,9 @@
 		  document.getElementById('light').rel = 'alternate stylesheet';
 		  document.getElementById('dark').rel = 'stylesheet';
 		}
-	  }
+		},
+		
+		
 	};
   
 	return Options;

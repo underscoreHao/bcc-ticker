@@ -5,7 +5,9 @@
     'red_color': '#D0021B',
     'currency': 'USD',
     'crypto_currency': 'bitcoin',
-    'theme': 'dark'
+    'theme': 'dark',
+		'priceDrop': 0,
+		'priceRise': 0
   };
 
   var config = {};

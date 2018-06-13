@@ -6,7 +6,9 @@
     'symbol_prefix': true,
     'green_color': '#1A9923',
     'red_color': '#D0021B',
-    'theme': 'dark'
+    'theme': 'dark',
+		'priceDrop': 0,
+		'priceRise': 0
   };
 
   var config = {};

@@ -73,26 +73,36 @@
 					</select>
 				</div>
 			</div>
-			<div class="row my-3 pl-5">
-				<strong>Notify me if price:</strong>
-			</div>
 			<div class="form-group row">
-				<label for="notificationDrop" class="col-sm-4 col-form-label text-right">Drops below</label>
+					<div class="col-sm-4"></div>
+				<div class="custom-control custom-checkbox col-sm-8">
+					<input type="checkbox" class="custom-control-input" id="priseDrop">
+					<label class="custom-control-label" for="priseDrop">Notify me if price drops</label>
+				</div>
+			</div>
+			<div id="priece-drop-container" class="form-group row hidden">
+				<label for="notificationDrop" class="col-sm-4 col-form-label text-right">Below</label>
 				<div class="col-sm-3">
 					<input type="text" class="form-control" id="notificationDrop" />
 				</div>
 				<div class="col-sm-5">
 					<input type="range" id="notificationDropRange" />
 				</div>
-
 			</div>
 			<div class="form-group row">
-				<label for="notificationRise" class="col-sm-4 col-form-label text-right">Rises above</label>
+				<div class="col-sm-4"></div>
+				<div class="custom-control custom-checkbox col-sm-8">
+					<input type="checkbox" class="custom-control-input" id="priseRise">
+					<label class="custom-control-label" for="priseRise">Notify me if price rises</label>
+				</div>
+			</div>
+			<div  id="priece-rise-container" class="form-group row hidden">
+				<label for="notificationRise" class="col-sm-4 col-form-label text-right">Above</label>
 				<div class="col-sm-3">
-					<input type="text" class="form-control" id="notificationRise" />
+					<input type="text" class="form-control" id="notificationRise" value="">
 				</div>
 				<div class="col-sm-5">
-					<input type="range" id="notificationRiseRange" />
+						<input type="range" id="notificationRiseRange" name="rangeInput" min="0" max="100">
 				</div>
 			</div>
 		</div>
