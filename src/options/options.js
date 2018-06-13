@@ -76,7 +76,6 @@
 			}
 		});
 
-
 		$('#notificationRiseRange').on('change', () => {
 			var val = $('#notificationRiseRange').val();
 		  document.getElementById('notificationRise').value=val; 
@@ -121,8 +120,12 @@
 		if (response.length == 0) {
 		  console.log('Something went wrong!')
 		} else {
-		  var results = JSON.parse(response);
+			var results = JSON.parse(response);
+			var crrPrice;
 		  $.each(results, (i, item) => {
+			if (item.id == config.crypto_currency) {
+				crrPrice = item.price_usd;
+			}
 			// Add a delimiter at the top 5 crypto currencies
 			if (i == 5) {
 			  $('#crypto_currency').append($('<option>', {
@@ -140,7 +143,12 @@
 		  // Set the values that the user has chosen previously
 		  $('#crypto_currency').val(config.crypto_currency);
 		  $('#user_currency').val(config.currency);
-		  $('#user_theme').val(config.theme);
+			$('#user_theme').val(config.theme);
+			//TODO: think about the counterparts of min max for
+			//the range inputs - e.g. crrPrice +- 1000, or some
+			//reasonable % based on the price
+			$( "#notificationRiseRange" ).attr('min',crrPrice);
+			$( "#notificationDropRange" ).attr('max',crrPrice);
 		}
 	  },
   
