@@ -162,11 +162,16 @@
 		  $('#crypto_currency').val(config.crypto_currency);
 		  $('#user_currency').val(config.currency);
 			$('#user_theme').val(config.theme);
-			//TODO: think about the counterparts of min max for
+			//TODO1: think about the counterparts of min max for
 			//the range inputs - e.g. crrPrice +- 1000, or some
-			//reasonable % based on the price
-			var maxRise = crrPrice - (-1000);
-			var minDrop = crrPrice - 1000;
+			//reasonable % based on the price 
+			//lets start with 25% of the price
+
+			//TODO2: handle case when user changes the crypto currency 
+			//and s/he has already set notifications for the previouse
+			var pricePercent = (25 / 100) * crrPrice
+			var maxRise = crrPrice - (-pricePercent); 
+			var minDrop = crrPrice - pricePercent;
 			$( "#notificationRiseRange" ).attr('min', crrPrice);
 			$( "#notificationRiseRange" ).attr('max', maxRise);
 			$( "#notificationDropRange" ).attr('max', crrPrice);

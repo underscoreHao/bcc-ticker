@@ -117,14 +117,14 @@ div.error-rise {
 input[type="range"]:before {
   content: attr(min) " ";
   font-size: 10px;
-  color: #000;
+  color: #fff;
   position: absolute;
   top: 80%;
 }
 input[type="range"]:after {
   content: " " attr(max);
   font-size: 10px;
-  color: #000;
+  color: #fff;
   position: absolute;
   top: 80%;
   left: 80%;
