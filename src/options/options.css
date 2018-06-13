@@ -37,6 +37,15 @@ i {
     box-shadow: 0 0 0 0.2rem #70ae667a !important;
 }
 
+.form-control.error {
+  border-color: #ff3232 !important;
+}
+
+.form-control.error:focus {
+  border-color: #ff3232 !important;
+  box-shadow: 0 0 0 0.2rem #ff323285 !important;
+}
+
 input[type=range] {
   -webkit-appearance: none; 
   width: 100%;
@@ -97,4 +106,26 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 
 div.hidden {
   display: none;
+}
+
+div.error-drop,
+div.error-rise {
+  color: #ff3232;
+  font-weight: bold;
+} 
+
+input[type="range"]:before {
+  content: attr(min) " ";
+  font-size: 10px;
+  color: #000;
+  position: absolute;
+  top: 80%;
+}
+input[type="range"]:after {
+  content: " " attr(max);
+  font-size: 10px;
+  color: #000;
+  position: absolute;
+  top: 80%;
+  left: 80%;
 }

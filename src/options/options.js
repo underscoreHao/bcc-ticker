@@ -78,22 +78,40 @@
 
 		$('#notificationRiseRange').on('change', () => {
 			var val = $('#notificationRiseRange').val();
-		  document.getElementById('notificationRise').value=val; 
+		  document.getElementById('notificationRise').value = val; 
 		});
 
 		$('#notificationDropRange').on('change', () => {
 			var val = $('#notificationDropRange').val();
-		  document.getElementById('notificationDrop').value=val; 
+		  document.getElementById('notificationDrop').value = val; 
 		});
 
 		$('#notificationRise').on('change', () => {
 			var val = $('#notificationRise').val();
-		  document.getElementById('notificationRiseRange').value=val; 
+			var rangeInput = document.getElementById('notificationRiseRange');
+			if (val < rangeInput.min || val > rangeInput.max) {
+				console.log('value out of range rise')
+				$('#notificationRise').addClass('error');
+				$('div.error-rise').removeClass('hidden');
+			} else {
+				$('#notificationRise').removeClass('error');
+				$('div.error-rise').addClass('hidden');
+				rangeInput.value = val; 
+			}
 		});
 
 		$('#notificationDrop').on('change', () => {
 			var val = $('#notificationDrop').val();
-		  document.getElementById('notificationDropRange').value=val; 
+			var rangeInput = document.getElementById('notificationDropRange');
+			if (val < rangeInput.min || val > rangeInput.max) {
+				console.log('value out of range drop')
+				$('#notificationDrop').addClass('error');
+				$('div.error-drop').removeClass('hidden');
+			} else {
+				$('#notificationDrop').removeClass('error');
+				$('div.error-drop').addClass('hidden');
+				rangeInput.value=val; 
+			} 
 		});
 
 	  },
@@ -117,11 +135,11 @@
 	  },
   
 	  handleResponse(response) {
+		var crrPrice;
 		if (response.length == 0) {
 		  console.log('Something went wrong!')
 		} else {
 			var results = JSON.parse(response);
-			var crrPrice;
 		  $.each(results, (i, item) => {
 			if (item.id == config.crypto_currency) {
 				crrPrice = item.price_usd;
@@ -147,8 +165,12 @@
 			//TODO: think about the counterparts of min max for
 			//the range inputs - e.g. crrPrice +- 1000, or some
 			//reasonable % based on the price
-			$( "#notificationRiseRange" ).attr('min',crrPrice);
-			$( "#notificationDropRange" ).attr('max',crrPrice);
+			var maxRise = crrPrice - (-1000);
+			var minDrop = crrPrice - 1000;
+			$( "#notificationRiseRange" ).attr('min', crrPrice);
+			$( "#notificationRiseRange" ).attr('max', maxRise);
+			$( "#notificationDropRange" ).attr('max', crrPrice);
+			$( "#notificationDropRange" ).attr('min', minDrop);
 		}
 	  },
   

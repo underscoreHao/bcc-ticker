@@ -84,6 +84,7 @@
 				<label for="notificationDrop" class="col-sm-4 col-form-label text-right">Below</label>
 				<div class="col-sm-3">
 					<input type="text" class="form-control" id="notificationDrop" />
+					<div class="error-drop hidden">Out of range</div>
 				</div>
 				<div class="col-sm-5">
 					<input type="range" id="notificationDropRange" min="" max="" />
@@ -99,10 +100,11 @@
 			<div  id="priece-rise-container" class="form-group row hidden">
 				<label for="notificationRise" class="col-sm-4 col-form-label text-right">Above</label>
 				<div class="col-sm-3">
-					<input type="text" class="form-control" id="notificationRise" value="">
+					<input type="text" class="form-control" id="notificationRise" value="" />
+					<div class="error-rise hidden">Out of range</div>
 				</div>
 				<div class="col-sm-5">
-						<input type="range" id="notificationRiseRange" min="" max="">
+						<input type="range" id="notificationRiseRange" min="" max="" />
 				</div>
 			</div>
 		</div>
